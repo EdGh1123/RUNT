@@ -171,7 +171,7 @@ nombreC, ciudadC,
             AsignarParametro("@CiudadComprador", SqlDbType.VarChar, ciudadC);
             AsignarParametro("@TelefonoComprador", SqlDbType.VarChar, telefonoC);
             EjecutarComando();
-
+            divpedido.Visible = true;
         }
         public void Conectar()
         {

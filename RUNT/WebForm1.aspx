@@ -90,7 +90,10 @@
                 <tr>
                     <td class="auto-style3">MINISTERIO DE TRANSPORTE</td>
                     <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style7">&nbsp;</td>
+                    <td class="auto-style7"><div runat="server" id="divpedido"  visible="false"><div class="alert alert-success" role="alert">
+  Se Cargaron todos los datos!
+</div>
+                        </div></td>
                     <td class="auto-style13">
                         <asp:Button ID="Button2" runat="server" Text="Ver datos Registrados" OnClick="Button2_Click" CausesValidation="false" style="height: 26px" />
                     </td>
