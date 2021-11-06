@@ -22,145 +22,160 @@ namespace RUNT
             String nombre, ciudad, codigo, fechaTramite, placa, tramite, maquinaria, marca, linea, tipo, traccion, colores,
                            modelo, peso, largo, ancho, alto, capacidadCarga, cabina, noMotor, regrabado, noIdentificacion, noEjes, importRemate,
                            noDocumento, fechaImportRemate, tipoCombustible, datosAlerta, primerApellido, segundoApellido,
-                           tipoDocumento, direccion, telefono;
+                           tipoDocumento, direccion, telefono,
+nombrep, ciudadp,
+                           noDocumentop,
+                           primerApellidop, segundoApellidop,
+                           tipoDocumentop, direccionp, telefonop
+
+
+                           ,
+nombreC, ciudadC,
+                           noDocumentoC,
+                           primerApellidoC, segundoApellidoC,
+                           tipoDocumentoC, direccionC, telefonoC
+
+                           ;
 
 
             nombre = TextBox1.Text;
-            ciudad = DropDownList1.SelectedValue;
-            codigo = TextBox3.Text;
+            ciudad = TextBox3.Text;
+            codigo = TextBox2.Text;
             fechaTramite = TextBox4.Text;
-            placa = TextBox2.Text + TextBox5.Text;
-            tramite = DropDownList2.SelectedValue;
-            maquinaria = DropDownList3.SelectedValue;
-            marca = TextBox6.Text;
-            linea = TextBox7.Text;
-            tipo = TextBox8.Text;
+            placa = TextBox5.Text + TextBox6.Text;
+            tramite = DropDownList1.SelectedValue;
+            maquinaria = DropDownList2.SelectedValue;
+            marca = TextBox7.Text;
+            linea = TextBox8.Text;
+            tipo = TextBox9.Text;
             traccion = DropDownList4.SelectedValue;
-            colores = TextBox9.Text;
-            modelo = TextBox10.Text;
-            peso = TextBox11.Text;
-            largo = TextBox12.Text;
-            ancho = TextBox13.Text;
-            alto = TextBox14.Text;
-            capacidadCarga = TextBox15.Text;
-            cabina = DropDownList5.SelectedValue;
-            noMotor = TextBox16.Text;
-            //regrabado = CheckBox1.Checked ? "Si" : CheckBox2.Checked ? "No" : null;
-            noIdentificacion = TextBox17.Text;
-            noEjes = TextBox18.Text;
-          //  importRemate = DropDownList9.SelectedValue;
-            noDocumento = TextBox31.Text;
-            fechaImportRemate = TextBox32.Text;
+            colores = TextBox10.Text;
+            modelo = TextBox11.Text;
+            peso = TextBox12.Text;
+            largo = TextBox13.Text;
+            ancho = TextBox14.Text;
+            alto = TextBox15.Text;
+            capacidadCarga = TextBox16.Text;
+            cabina = DropDownList3.SelectedValue;
+            noMotor = TextBox17.Text;
+            regrabado = RadioButtonList1.SelectedItem.Text;
+            noIdentificacion = TextBox18.Text;
+            noEjes = TextBox19.Text;
+            importRemate = DropDownList6.SelectedValue;
+
+
+           
+            fechaImportRemate = TextBox28.Text;
             tipoCombustible = DropDownList7.SelectedValue;
-          //  datosAlerta = CheckBoxList1.SelectedValue;
+            datosAlerta = DropDownList8.SelectedValue;
 
 
             Conectar();
-            CrearComando("INSERT INTO Solicitud" +
-                "(nombre, ciudad, codigo, fechaTramite, placa, tramite, maquinaria, marca, linea, tipo, " +
-                "traccion, colores, modelo, peso, largo, ancho, alto, capacidadCarga, cabina, noMotor, " +
-                "regrabado, noIdentificacion, noEjes, importRemate, noDocumento, fechaImportRemate, " +
-                "tipoCombustible, datosAlerta) " +
+            CrearComando("INSERT INTO RUNT" +
+                "(nombre, ciudad, codigo, fechatramite, Placa, Tramite, ClaseMaquinaria, Marca, Linea, Tipo, " +
+                "TipoTraccion, Colores, Modelo, PesoBruto, Largo, Ancho, Alto, CapacidadCarga, Cabina, NMotor, " +
+                "Grabado, NIdentificacion, NEjes, ImportRema, fechaimporte, " +
+                "TCombustible, DatosAlerta) " +
                 "VALUES" +
-                "(@nombre, @ciudad, @codigo, @fechaTramite, @placa, @tramite, @maquinaria, @marca, @linea, @tipo, " +
-                "@traccion, @colores, @modelo, @peso, @largo, @ancho, @alto, @capacidadCarga, @cabina, @noMotor, " +
-                "@regrabado, @noIdentificacion, @noEjes, @importRemate, @noDocumento, @fechaImportRemate, " +
-                "@tipoCombustible, @datosAlerta);SELECT SCOPE_IDENTITY();");
+                "(@nombre, @ciudad, @codigo, @fechatramite, @Placa, @Tramite, @ClaseMaquinaria, @Marca, @Linea, @Tipo, " +
+                "@TipoTraccion, @Colores, @Modelo, @PesoBruto, @Largo, @Ancho, @Alto, @CapacidadCarga, @Cabina, @NMotor, " +
+                "@Grabado, @NIdentificacion, @NEjes, @ImportRema, @fechaimporte, " +
+                "@TCombustible, @DatosAlerta);SELECT SCOPE_IDENTITY();");
             AsignarParametro("@nombre", SqlDbType.VarChar, nombre);
             AsignarParametro("@ciudad", SqlDbType.VarChar, ciudad);
             AsignarParametro("@codigo", SqlDbType.VarChar, codigo);
-            AsignarParametro("@fechaTramite", SqlDbType.VarChar, fechaTramite);
-            AsignarParametro("@placa", SqlDbType.VarChar, placa);
-            AsignarParametro("@tramite", SqlDbType.VarChar, tramite);
-            AsignarParametro("@maquinaria", SqlDbType.VarChar, maquinaria);
-            AsignarParametro("@marca", SqlDbType.VarChar, marca);
-            AsignarParametro("@linea", SqlDbType.VarChar, linea);
-            AsignarParametro("@tipo", SqlDbType.VarChar, tipo);
-            AsignarParametro("@traccion", SqlDbType.VarChar, traccion);
-            AsignarParametro("@colores", SqlDbType.VarChar, colores);
-            AsignarParametro("@modelo", SqlDbType.VarChar, modelo);
-            AsignarParametro("@peso", SqlDbType.VarChar, peso);
-            AsignarParametro("@largo", SqlDbType.VarChar, largo);
-            AsignarParametro("@ancho", SqlDbType.VarChar, ancho);
-            AsignarParametro("@alto", SqlDbType.VarChar, alto);
-            AsignarParametro("@capacidadCarga", SqlDbType.VarChar, capacidadCarga);
-            AsignarParametro("@cabina", SqlDbType.VarChar, cabina);
-            AsignarParametro("@noMotor", SqlDbType.VarChar, noMotor);
-          //  AsignarParametro("@regrabado", SqlDbType.VarChar, regrabado);
-            AsignarParametro("@noIdentificacion", SqlDbType.VarChar, noIdentificacion);
-            AsignarParametro("@noEjes", SqlDbType.VarChar, noEjes);
-          //  AsignarParametro("@importRemate", SqlDbType.VarChar, importRemate);
-            AsignarParametro("@noDocumento", SqlDbType.VarChar, noDocumento);
-            AsignarParametro("@fechaImportRemate", SqlDbType.VarChar, fechaImportRemate);
-            AsignarParametro("@tipoCombustible", SqlDbType.VarChar, tipoCombustible);
-          // AsignarParametro("@datosAlerta", SqlDbType.VarChar, datosAlerta);
+            AsignarParametro("@fechatramite", SqlDbType.VarChar, fechaTramite);
+            AsignarParametro("@Placa", SqlDbType.VarChar, placa);
+            AsignarParametro("@Tramite", SqlDbType.VarChar, tramite);
+            AsignarParametro("@ClaseMaquinaria", SqlDbType.VarChar, maquinaria);
+            AsignarParametro("@Marca", SqlDbType.VarChar, marca);
+            AsignarParametro("@Linea", SqlDbType.VarChar, linea);
+            AsignarParametro("@Tipo", SqlDbType.VarChar, tipo);
+            AsignarParametro("@TipoTraccion", SqlDbType.VarChar, traccion);
+            AsignarParametro("@Colores", SqlDbType.VarChar, colores);
+            AsignarParametro("@Modelo", SqlDbType.VarChar, modelo);
+            AsignarParametro("@PesoBruto", SqlDbType.VarChar, peso);
+            AsignarParametro("@Largo", SqlDbType.VarChar, largo);
+            AsignarParametro("@Ancho", SqlDbType.VarChar, ancho);
+            AsignarParametro("@Alto", SqlDbType.VarChar, alto);
+            AsignarParametro("@CapacidadCarga", SqlDbType.VarChar, capacidadCarga);
+            AsignarParametro("@Cabina", SqlDbType.VarChar, cabina);
+            AsignarParametro("@NMotor", SqlDbType.VarChar, noMotor);
+          AsignarParametro("@Grabado", SqlDbType.VarChar, regrabado);
+            AsignarParametro("@NIdentificacion", SqlDbType.VarChar, noIdentificacion);
+            AsignarParametro("@NEjes", SqlDbType.VarChar, noEjes);
+            AsignarParametro("@ImportRema", SqlDbType.VarChar, importRemate);
+           
+            AsignarParametro("@fechaimporte", SqlDbType.VarChar, fechaImportRemate);
+            AsignarParametro("@TCombustible", SqlDbType.VarChar, tipoCombustible);
+         AsignarParametro("@DatosAlerta", SqlDbType.VarChar, datosAlerta);
 
             int solicitud_id = EjecutarComando();
             //Label1.Text = solicitud_id + "";
 
             //Propietario
-            primerApellido = TextBox19.Text;
-            segundoApellido = TextBox28.Text;
-            nombre = TextBox29.Text;
-            tipoDocumento = DropDownList6.SelectedValue;
-            noDocumento = TextBox30.Text;
-            direccion = TextBox33.Text;
-            ciudad = TextBox34.Text;
-            telefono = TextBox35.Text;
+            primerApellidop = TextBox20.Text;
+            segundoApellidop = TextBox21.Text;
+            nombrep = TextBox22.Text;
+            tipoDocumentop = DropDownList5.SelectedValue;
+            noDocumentop = TextBox23.Text;
+            direccionp = TextBox26.Text;
+            ciudadp = TextBox24.Text;
+            telefonop = TextBox25.Text;
 
             Conectar();
-            CrearComando("INSERT INTO Propietario" +
-                "(solicitud_id, primerApellido, segundoApellido, nombre, " +
-                "tipoDocumento, noDocumento, direccion, ciudad, telefono)" +
+            CrearComando("INSERT INTO PROPIETARIO" +
+                "(solicitud_id, ApellidoPropietario, Apellido2Propietario, NombrePropietario, " +
+                "TDocumentoPropietario, NDocumentoPropietario, DireccionPropietario, CiudadPropietario, TelefonoPropietario)" +
                 "VALUES" +
-                "(@solicitud_id, @primerApellido, @segundoApellido, @nombre, " +
-                "@tipoDocumento, @noDocumento, @direccion, @ciudad, @telefono);" +
+                "(@solicitud_id, @ApellidoPropietario, @Apellido2Propietario, @NombrePropietario, " +
+                "@TDocumentoPropietario, @NDocumentoPropietario, @DireccionPropietario, " +
+                "@CiudadPropietario, @TelefonoPropietario);" +
                 "SELECT SCOPE_IDENTITY();");
-            AsignarParametro("@solicitud_id", SqlDbType.Int, solicitud_id);
-            AsignarParametro("@primerApellido", SqlDbType.VarChar, primerApellido);
-            AsignarParametro("@segundoApellido", SqlDbType.VarChar, segundoApellido);
-            AsignarParametro("@nombre", SqlDbType.VarChar, nombre);
-            AsignarParametro("@tipoDocumento", SqlDbType.VarChar, tipoDocumento);
-            AsignarParametro("@noDocumento", SqlDbType.VarChar, noDocumento);
-            AsignarParametro("@direccion", SqlDbType.VarChar, direccion);
-            AsignarParametro("@ciudad", SqlDbType.VarChar, ciudad);
-            AsignarParametro("@telefono", SqlDbType.VarChar, telefono);
+            AsignarParametro("@solicitud_id", SqlDbType.VarChar, solicitud_id);
+            AsignarParametro("ApellidoPropietario", SqlDbType.VarChar, primerApellidop);
+            AsignarParametro("@Apellido2Propietario", SqlDbType.VarChar, segundoApellidop);
+            AsignarParametro("@NombrePropietario", SqlDbType.VarChar, nombrep);
+            AsignarParametro("@TDocumentoPropietario", SqlDbType.VarChar, tipoDocumentop);
+            AsignarParametro("@NDocumentoPropietario", SqlDbType.VarChar, noDocumentop);
+            AsignarParametro("@DireccionPropietario", SqlDbType.VarChar, direccionp);
+            AsignarParametro("@CiudadPropietario", SqlDbType.VarChar, ciudadp);
+            AsignarParametro("@TelefonoPropietario", SqlDbType.VarChar, telefonop);
             EjecutarComando();
 
             // Comprador
-            primerApellido = TextBox20.Text;
-            segundoApellido = TextBox21.Text;
-            nombre = TextBox22.Text;
-            tipoDocumento = DropDownList8.SelectedValue;
-            noDocumento = TextBox24.Text;
-            direccion = TextBox23.Text;
-            ciudad = TextBox35.Text;
-            telefono = TextBox26.Text;
+            primerApellidoC = TextBox29.Text;
+            segundoApellidoC = TextBox30.Text;
+            nombreC = TextBox31.Text;
+            tipoDocumentoC = DropDownList9.SelectedValue;
+            noDocumentoC = TextBox33.Text;
+            direccionC = TextBox34.Text;
+            ciudadC = TextBox35.Text;
+            telefonoC = TextBox36.Text;
 
             Conectar();
-            CrearComando("INSERT INTO Comprador" +
-                "(solicitud_id, primerApellido, segundoApellido, nombre, " +
-                "tipoDocumento, noDocumento, direccion, ciudad, telefono)" +
+            CrearComando("INSERT INTO COMPRADOR" +
+                "(solicitud_id, ApellidoComprador, Apellido2Comprador, NombreComprador, " +
+                "TDocumentoComprador, NDocumentoComprador, DireccionComprador, CiudadComprador, TelefonoComprador)" +
                 "VALUES" +
-                "(@solicitud_id, @primerApellido, @segundoApellido, @nombre, " +
-                "@tipoDocumento, @noDocumento, @direccion, @ciudad, @telefono);" +
+                "(@solicitud_id, @ApellidoComprador, @Apellido2Comprador, @NombreComprador, " +
+                "@TDocumentoComprador, @NDocumentoComprador, @DireccionComprador, @CiudadComprador, @TelefonoComprador);" +
                 "SELECT SCOPE_IDENTITY();");
-            AsignarParametro("@solicitud_id", SqlDbType.Int, solicitud_id);
-            AsignarParametro("@primerApellido", SqlDbType.VarChar, primerApellido);
-            AsignarParametro("@segundoApellido", SqlDbType.VarChar, segundoApellido);
-            AsignarParametro("@nombre", SqlDbType.VarChar, nombre);
-            AsignarParametro("@tipoDocumento", SqlDbType.VarChar, tipoDocumento);
-            AsignarParametro("@noDocumento", SqlDbType.VarChar, noDocumento);
-            AsignarParametro("@direccion", SqlDbType.VarChar, direccion);
-            AsignarParametro("@ciudad", SqlDbType.VarChar, ciudad);
-            AsignarParametro("@telefono", SqlDbType.VarChar, telefono);
+            AsignarParametro("@solicitud_id", SqlDbType.VarChar, solicitud_id);
+            AsignarParametro("@ApellidoComprador", SqlDbType.VarChar, primerApellidoC);
+            AsignarParametro("@Apellido2Comprador", SqlDbType.VarChar, segundoApellidoC);
+            AsignarParametro("@NombreComprador", SqlDbType.VarChar, nombreC);
+            AsignarParametro("@TDocumentoComprador", SqlDbType.VarChar, tipoDocumentoC);
+            AsignarParametro("@NDocumentoComprador", SqlDbType.VarChar, noDocumentoC);
+            AsignarParametro("@DireccionComprador", SqlDbType.VarChar, direccionC);
+            AsignarParametro("@CiudadComprador", SqlDbType.VarChar, ciudadC);
+            AsignarParametro("@TelefonoComprador", SqlDbType.VarChar, telefonoC);
             EjecutarComando();
 
         }
         public void Conectar()
         {
-            //con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True");
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\jor-m\source\repos\Taller_RUNT\Taller_RUNT\App_Data\Database1.mdf;Integrated Security=True");
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\eduar\source\repos\RUNT\RUNT\RUNT\App_Data\Database1.mdf;Integrated Security=True");
             con.Open();
         }
 
@@ -188,12 +203,17 @@ namespace RUNT
 
         public int EjecutarComando()
         {
-            int id = Convert.ToInt32(cmd.ExecuteScalar());
+            int id = Convert.ToInt32(cmd.ExecuteScalar() is DBNull );
 
             if (con.State == System.Data.ConnectionState.Open)
                 Desconectar();
 
             return id;
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WebForm2.aspx");
         }
     }
 }

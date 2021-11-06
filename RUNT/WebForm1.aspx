@@ -91,7 +91,9 @@
                     <td class="auto-style3">MINISTERIO DE TRANSPORTE</td>
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style7">&nbsp;</td>
-                    <td class="auto-style13">&nbsp;</td>
+                    <td class="auto-style13">
+                        <asp:Button ID="Button2" runat="server" Text="Ver datos Registrados" OnClick="Button2_Click" CausesValidation="false" style="height: 26px" />
+                    </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -584,7 +586,7 @@
                 <tr>
                     <td class="auto-style3">&nbsp;</td>
                     <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style7">DIRECCION</td>
+                    <td class="auto-style7">Numero</td>
                     <td class="auto-style13">
                         <asp:TextBox ID="TextBox23" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator29" runat="server" ControlToValidate="TextBox23" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -624,7 +626,7 @@
                  <tr>
                     <td>&nbsp;</td>
                     <td class="auto-style5" >&nbsp;</td>
-                    <td>FIRMA DEL PROPIETARIO</td>
+                    <td>Direccion</td>
                     <td class="auto-style13">
                         <asp:TextBox ID="TextBox26" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator32" runat="server" ControlToValidate="TextBox26" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -795,8 +797,11 @@
                     <td class="auto-style5" >&nbsp;</td>
                     <td>TIPO DE IDENTIDAD</td>
                     <td class="auto-style13">
-                        <asp:TextBox ID="TextBox32" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator40" runat="server" ControlToValidate="TextBox32" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:DropDownList ID="DropDownList9" runat="server">
+                            <asp:ListItem>PASAPORTE</asp:ListItem>
+                            <asp:ListItem>TI</asp:ListItem>
+                            <asp:ListItem>CC</asp:ListItem>
+                        </asp:DropDownList>
                        </td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -857,12 +862,8 @@
                 </tr>
                    <tr>
                     <td>&nbsp;</td>
-                    <td class="auto-style5" >&nbsp;</td>
-                    <td>FIRMA DEL COMPRADOR</td>
                     <td class="auto-style13">
-                        <asp:TextBox ID="TextBox37" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator45" runat="server" ControlToValidate="TextBox37" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                       </td>
+                        &nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
